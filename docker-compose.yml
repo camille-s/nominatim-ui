@@ -1,0 +1,41 @@
+services:
+  geocoder:
+    container_name: nominatim
+    image: mediagis/nominatim:5.1
+    secrets:
+      - nominatim_key
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # see https://github.com/mediagis/nominatim-docker/tree/master/5.1#configuration for more options
+      PBF_URL: https://download.geofabrik.de/north-america/us/maryland-latest.osm.pbf
+      REPLICATION_URL: https://download.geofabrik.de/north-america/us-updates/
+      NOMINATIM_PASSWORD_FILE: /run/secrets/nominatim_key
+      UPDATE_MODE: catch-up
+      IMPORT_STYLE: full
+    volumes:
+      - nominatim-data:/var/lib/postgresql/16/main
+    shm_size: 1gb
+    networks:
+      - nominatim
+  ui:
+    container_name: nominatim-ui
+    image: nominatim-ui:latest
+    depends_on:
+      - geocoder
+    restart: unless-stopped
+    ports:
+      - "8089:80"
+    networks:
+      - nominatim
+
+volumes:
+  nominatim-data:
+
+secrets:
+  nominatim_key:
+    file: ./keys/nominatim_key.txt
+
+networks:
+  nominatim:

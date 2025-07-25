@@ -13,6 +13,10 @@ For technical background, how to develop and create a release see [CONTRIBUTE.md
 
 ![Screenshot](screenshot.png)
 
+## About this fork
+
+This is my attempt at setting up a docker image based on the not-yet-merged update in @mtmail 's [pull request](https://github.com/osm-search/nominatim-ui/pull/273), then incorportating that into a docker compose file along with the [main Nominatim image](https://github.com/mediagis/nominatim-docker).
+
 ## Starting the frontend
 
 You can either
