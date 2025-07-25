@@ -35,7 +35,7 @@
         "rollup-plugin-css-only": "^4.3.0",
         "rollup-plugin-livereload": "^2.0.0",
         "rollup-plugin-svelte": "^7.0.0",
-        "static-server": "^2.2.1",
+        "static-server": "^3.0.0",
         "svelte": "^5.0.0"
     },
     "dependencies": {
