@@ -1,0 +1,11 @@
+image: ghcr.io/camille-s/nominatim-ui:0.1.0
+tags: ['0.1.0']
+manifests:
+  - image: ghcr.io/camille-s/nominatim-ui:0.1.0
+    platform:
+      architecture: 'amd64'
+      os: linux
+  - image: ghcr.io/camille-s/nominatim-ui:0.1.0
+    platform:
+      architecture: 'arm64'
+      os: linux
