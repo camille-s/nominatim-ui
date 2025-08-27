@@ -6,7 +6,7 @@ services:
       - nominatim_key
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "8123:8080"
     environment:
       # see https://github.com/mediagis/nominatim-docker/tree/master/5.1#configuration for more options
       PBF_URL: https://download.geofabrik.de/north-america/us/maryland-latest.osm.pbf

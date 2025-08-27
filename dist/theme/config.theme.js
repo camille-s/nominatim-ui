@@ -1,4 +1,4 @@
-Nominatim_Config.Nominatim_API_Endpoint = 'http://127.0.0.1:8080/';
+Nominatim_Config.Nominatim_API_Endpoint = 'http://localhost:8123/';
 Nominatim_Config.Page_Title = 'Nominatim geocoder';
 // Baltimore MD
 Nominatim_Config.Map_Default_Lat = 39.291;
