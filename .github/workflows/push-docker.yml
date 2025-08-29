@@ -21,7 +21,22 @@ jobs:
 
         steps:
             - name: Checkout code
-              uses: actions/checkout@v4
+              uses: actions/checkout@v5
+              with:
+                sparse-checkout: |
+                  Dockerfile
+                  nginx.conf
+
+            - name: Download latest release
+              uses: robinraju/release-downloader@v1.12
+              with:
+                latest: true
+                fileName: 'nominatim-ui-*.zip'
+                out-file-path: 'nominatim-ui.zip'
+                extract: true
+
+            - name: Move dist
+              run: mv nominatim-ui/dist ./dist
               
             - name: Log in
               uses: docker/login-action@v3.4.0
