@@ -10,7 +10,7 @@ env:
     IMAGE_NAME: ${{ github.repository }}
 
 jobs:
-    build-and-push:
+    build-docker:
         runs-on: ubuntu-latest
         
         permissions:
@@ -32,12 +32,15 @@ jobs:
               with:
                 latest: true
                 fileName: 'nominatim-ui-*.zip'
-                out-file-path: 'release.zip'
 
             - name: Unzip and move dist
               run: |
-                unzip release.zip
-                mv release/nominatim-ui/dist ./dist
+                release=$(find . -name 'nominatim-ui-*.zip' | head -n 1)
+                fn=$(basename "$release")
+                fn=${fn%.zip}
+                unzip "$release"
+                ls -al "$fn"/
+                mv "$fn/dist" ./dist
               
             - name: Log in
               uses: docker/login-action@v3.4.0
