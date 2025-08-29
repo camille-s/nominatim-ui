@@ -32,11 +32,12 @@ jobs:
               with:
                 latest: true
                 fileName: 'nominatim-ui-*.zip'
-                out-file-path: 'nominatim-ui.zip'
-                extract: true
+                out-file-path: 'release.zip'
 
-            - name: Move dist
-              run: mv nominatim-ui/dist ./dist
+            - name: Unzip and move dist
+              run: |
+                unzip release.zip
+                mv release/nominatim-ui/dist ./dist
               
             - name: Log in
               uses: docker/login-action@v3.4.0
