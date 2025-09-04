@@ -1,4 +1,7 @@
-Nominatim_Config.Nominatim_API_Endpoint = 'http://localhost:8123/';
+const host = process.env.SERVER_IP || 'localhost';
+const port = process.env.SERVER_PORT || '8123';
+// Nominatim_Config.Nominatim_API_Endpoint = 'http://localhost:8123/';
+Nominatim_Config.Nominatim_API_Endpoint = `http://${host}:${port}/`;
 Nominatim_Config.Page_Title = 'Nominatim geocoder';
 // Baltimore MD
 Nominatim_Config.Map_Default_Lat = 39.291;
