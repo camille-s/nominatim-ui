@@ -1,4 +1,4 @@
-const host = process.env.SERVER_IP || 'localhost';
+const host = process.env.SERVER_HOST || 'geocoder';
 const port = process.env.SERVER_PORT || '8123';
 // Nominatim_Config.Nominatim_API_Endpoint = 'http://localhost:8123/';
 Nominatim_Config.Nominatim_API_Endpoint = `http://${host}:${port}/`;
