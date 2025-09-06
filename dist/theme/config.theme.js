@@ -3,7 +3,7 @@
 // const host = SERVER_HOST || 'geocoder';
 // const port = SERVER_PORT || '8123';
 // go back to hardcoding for now
-const host = 'geocoder';
+const host = 'localhost';
 const port = '8123';
 Nominatim_Config.Nominatim_API_Endpoint = `http://${host}:${port}/`;
 // coords for Baltimore, MD
